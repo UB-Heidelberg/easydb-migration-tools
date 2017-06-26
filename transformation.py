@@ -15,10 +15,10 @@ from easydb.migration.transform.extract import AssetColumn
 ##INSTANZSPEZIFISCHE VARIABLEN
 ##VOR AUSFÜHRUNG SETZEN!
 
-schema= "public"                                #meistens 'public' Bei mehreren Schemata manuell für jeden Tabellen Eintrag festlegen
-instanz=                                    #Instanzname in Postgres z.B. lette-verein, easy5-annegret o.ä.
-collection_table=                          #Bezeichnung der Mappen-Tabelle in Source
-collection_objects_table=                   #Link-Tabelle für Objekte in Mappen
+schema="public"
+instanz="unib-heidelberg"
+collection_table="workfolder2"
+collection_objects_table="workfolder2_bilder"
 
 ###############################################################################
 
