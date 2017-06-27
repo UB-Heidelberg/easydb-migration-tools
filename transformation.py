@@ -159,7 +159,19 @@ if additional_tranformations:
         for fn in additional_tranformations:
                 with open(fn) as fp:
                         add = json.load(fp)
-                        tables.extend(add)
+                        for transformation in add:
+                                asset_columns_raw = transformation.get('asset_columns_raw')
+				# If the transformation contains asset columns, transform the raw data into AssetColumn objects
+                                if asset_columns_raw:
+                                        transformation['asset_columns'] = [AssetColumn(
+						ac.get('instanz'), 
+						ac.get('table_from'), 
+						ac.get('column_from'), 
+						ac.get('table_to'), 
+						ac.get('column_to'),
+						ac.get('urls')
+                                        ) for ac in asset_columns_raw]
+                                tables.append(transformation)
 
 for table in tables:
     if table['has_asset']:#Write records with files attached
