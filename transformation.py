@@ -158,7 +158,8 @@ tables.append(
 if additional_tranformations:
         for fn in additional_tranformations:
                 with open(fn) as fp:
-                        tables.append(json.load(fp))
+                        add = json.load(fp)
+                        tables.extend(add)
 
 for table in tables:
     if table['has_asset']:#Write records with files attached
