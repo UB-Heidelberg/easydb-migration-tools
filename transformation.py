@@ -109,15 +109,6 @@ tables.append(
             vorname as first_name,
             nachname as last_name
             FROM "{0}.{1}.user"
-        UNION ALL
-        SELECT
-            id as __source_unique_id,
-            user_id,
-            NULL,
-            NULL,
-            displayname as last_name
-        FROM "{0}.{1}.eadb_user_cache"
-        WHERE NOT EXISTS (SELECT * FROM "{0}.{1}.user" where login = user_id)
         """.format(instanz,schema),
         'table_from': '{}.{}.user'.format(instanz,schema),
         'table_to': 'easydb.ez_user',
@@ -126,7 +117,7 @@ tables.append(
         'has_asset': False
     }
 )
-#'GROUPS'
+##GROUPS
 tables.append(
     {
        'sql':
@@ -135,7 +126,7 @@ tables.append(
             id as __source_unique_id,
             name,
             name as "displayname:de-DE"
-        FROM "{}.{}.usergruppe"
+        FROM "{}.{}.usergruppe" WHERE name is not null
         """.format(instanz,schema),
         'table_from':'{}.{}.usergruppe'.format(instanz,schema),
         'table_to':'easydb.ez_group',
@@ -160,72 +151,6 @@ tables.append(
         'has_pool': False,
         'has_asset': False
    }
-)
-
-##COLLECTIONS
-tables.append(
-    {
-        'sql':
-        """\
-        SELECT
-            id as __source_unique_id,
-            "collection" as type,
-            fk_father_id as __parent_id,
-            name as "displayname:de-DE",
-            beschreibung as "description:de-DE",
-            easydb_owner as __owner
-        FROM "{}.{}.{}"
-        """.format(instanz,schema,collection_table),
-        'table_from':'{}.{}.{}'.format(instanz,schema,collection_table),
-        'table_to':'easydb.ez_collection',
-        'has_parent': False,
-        'has_pool': False,
-        'has_asset': False
-   }
-)
-
-################################################################################
-#-------------------->INSERT CUSTOM OBJECT-TYPES HERE<---------------------------
-##INDIVDUAL TABLES: MUST BE CHANGED TO FIT ACTUAL VALUES
-tables.append(
-    {
-        'sql':
-        """\
-        SELECT
-            id as __source_unique_id,
-            name,
-            name as "displayname:de-DE"
-        FROM "{0}.{1}.table_from"
-        """.format(instanz,schema),                                 #sql query (hard to automatize, because of varying join, etc.), all fields are examples, must replace those
-        'table_from': '{0}.{1}.table'.format(instanz, schema),      #table in source
-        'table_to': 'easydb.table',                                 #table in destination
-        'has_parent': False,                                        #True if Object is part of a List with hierarchical ordering
-        'has_pool': False,                                          #True if records of this table are orgranized in pools
-        'has_asset': False,                                          #True if record has a file attached to it
-        'asset_columns': [AssetColumn(instanz, '{}.table'.format(schema), 'column', 'table', 'column', ['url'])]
-    }
-)
-
-################################################################################
-##COLLECTION OBJECTS IN EASYDB 4 ENTWEDER EIGENE TABLE ODER EADB_LINKS
-tables.append(
-    {
-        'sql':
-        """\
-        SELECT
-            id as __source_unique_id,
-            lk_bild_id as object_id,
-            lk_arbeitsmappe_id as collection_id
-            position
-        FROM "{}.{}.{}"
-        """.format(instanz,schema,collection_objects_table),
-        'table_from':'{}.{}.{}'.format(instanz,schema,collection_objects_table),
-        'table_to':'easydb.ez_collection__objects',
-        'has_parent': False,
-        'has_pool': False,
-        'has_asset': False,
-        'objects_table': None
-    }
 )
 
 for table in tables:
