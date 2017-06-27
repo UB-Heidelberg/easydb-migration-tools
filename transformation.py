@@ -3,7 +3,7 @@ import logging
 import logging.config
 import sys
 import sqlite3
-
+import json
 
 import easydb.migration.transform.job
 import easydb.migration.transform.prepare
@@ -19,6 +19,7 @@ schema="public"
 instanz="unib-heidelberg"
 collection_table="workfolder2"
 collection_objects_table="workfolder2_bilder"
+additional_tranformations=[] # List additional transformation dictionary files here (dictionaries must be in JSON format)
 
 ###############################################################################
 
@@ -152,6 +153,12 @@ tables.append(
         'has_asset': False
    }
 )
+
+##CUSTOM TRANSFORMATIONS
+if additional_tranformations:
+        for fn in additional_tranformations:
+                with open(fn) as fp:
+                        tables.append(json.load(fp))
 
 for table in tables:
     if table['has_asset']:#Write records with files attached
