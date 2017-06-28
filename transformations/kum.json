@@ -7,5 +7,14 @@
     "has_parent": true,
     "has_asset": false,
     "asset_columns": []
+  },
+  {
+    "sql": "SELECT id as '__source_unique_id', id as 'easydb4id', personengruppe FROM 'unib-heidelberg.public.kumpersonen'",
+    "table_from": "unib-heidelberg.public.kumpersonen",
+    "table_to": "easydb.personengruppen",
+    "has_pool": false,
+    "has_parent": false,
+    "has_asset": false,
+    "asset_columns": []
   }
 ]
