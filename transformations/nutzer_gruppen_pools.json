@@ -1,0 +1,30 @@
+[
+  {
+    "sql": "SELECT id as '__source_unique_id', login, email, vorname as 'first_name', nachname as 'last_name' FROM 'unib-heidelberg.public.user'",
+    "table_from": "unib-heidelberg.public.user",
+    "table_to": "easydb.ez_user",
+    "has_pool": false,
+    "has_parent": false,
+    "has_asset": false,
+    "asset_columns": []
+  },
+  {
+    "sql": "SELECT id as '__source_unique_id', name, name as 'displayname:de-DE' FROM 'unib-heidelberg.public.usergruppe'",
+    "table_from": "unib-heidelberg.public.usergruppe",
+    "table_to": "easydb.ez_group",
+    "has_pool": false,
+    "has_parent": false,
+    "has_asset": false,
+    "asset_columns": []
+  },
+  {
+    "sql": "SELECT id as '__source_unique_id', name as 'name:de-DE' FROM 'unib-heidelberg.public.pool'",
+    "table_from": "unib-heidelberg.public.pool",
+    "table_to": "easydb.ez_pool",
+    "has_pool": false,
+    "has_parent": true,
+    "has_asset": false,
+    "asset_columns": []
+  }
+]
+

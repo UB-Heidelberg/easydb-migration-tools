@@ -19,7 +19,7 @@ schema="public"
 instanz="unib-heidelberg"
 collection_table="workfolder2"
 collection_objects_table="workfolder2_bilder"
-additional_tranformations=["/usr/local/easydb-migration/easydb-migration-tools/transformations/bilder.json"] # List additional transformation dictionary files here (dictionaries must be in JSON format)
+additional_tranformations=["/usr/local/easydb-migration/easydb-migration-tools/transformations/nutzer_gruppen_pools.json"] # List additional transformation dictionary files here (dictionaries must be in JSON format)
 
 ###############################################################################
 
@@ -96,63 +96,7 @@ job.prepare()
 
 ###Zur Erzeugung einer leeren Destination alles ab hier auskommentieren
 # transform
-tables=[]       #list of all tables, a transformation for each table must be appended in the dictionary stile below
-
-##USERS
-tables.append(
-    {
-        'sql':
-        """\
-        SELECT
-            id as __source_unique_id,
-            login,
-            email,
-            vorname as first_name,
-            nachname as last_name
-            FROM "{0}.{1}.user"
-        """.format(instanz,schema),
-        'table_from': '{}.{}.user'.format(instanz,schema),
-        'table_to': 'easydb.ez_user',
-        'has_parent': False,
-        'has_pool': False,
-        'has_asset': False
-    }
-)
-##GROUPS
-tables.append(
-    {
-       'sql':
-       """\
-        SELECT
-            id as __source_unique_id,
-            name,
-            name as "displayname:de-DE"
-        FROM "{}.{}.usergruppe" WHERE name is not null
-        """.format(instanz,schema),
-        'table_from':'{}.{}.usergruppe'.format(instanz,schema),
-        'table_to':'easydb.ez_group',
-        'has_parent': False,
-        'has_pool': False,
-        'has_asset': False
-    }
-)
-##POOLS
-tables.append(
-    {
-        'sql':
-        """\
-        SELECT
-            id as __source_unique_id,
-            name as "name:de-DE"
-        FROM "{}.{}.pool"
-        """.format(instanz,schema),
-        'table_from':'{}.{}.pool'.format(instanz,schema),
-        'table_to':'easydb.ez_pool',
-        'has_parent': True,
-        'has_pool': False,
-        'has_asset': False
-   }
-)
+tables = []       #list of all tables, a transformation for each table must be appended in the dictionary stile below
 
 ##CUSTOM TRANSFORMATIONS
 if additional_tranformations:
