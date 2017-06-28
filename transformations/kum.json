@@ -1,0 +1,11 @@
+[
+  {	
+    "sql": "SELECT id as '__source_unique_id', id as 'easydb4id', nr, name FROM 'unib-heidelberg.public.dienststellen'",
+    "table_from": "unib-heidelberg.public.dienststellen",
+    "table_to": "easydb.dienststellen",
+    "has_pool": false,
+    "has_parent": true,
+    "has_asset": false,
+    "asset_columns": []
+  }
+]

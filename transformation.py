@@ -19,7 +19,7 @@ schema="public"
 instanz="unib-heidelberg"
 collection_table="workfolder2"
 collection_objects_table="workfolder2_bilder"
-additional_tranformations=["/usr/local/easydb-migration/easydb-migration-tools/transformations/nutzer_gruppen_pools.json"] # List additional transformation dictionary files here (dictionaries must be in JSON format)
+additional_tranformations=["/usr/local/easydb-migration/easydb-migration-tools/transformations/kum.json"] # List additional transformation dictionary files here (dictionaries must be in JSON format)
 
 ###############################################################################
 
