@@ -1,7 +1,7 @@
 [
   {	
-    "sql": "SELECT id as '__source_unique_id', id as 'easydb4id', nr, name FROM 'unib-heidelberg.public.dienststellen'",
-    "table_from": "unib-heidelberg.public.dienststellen",
+    "sql": "SELECT id as '__source_unique_id', id as 'easydb4id', nr, name FROM 'heidicon.public.dienststellen'",
+    "table_from": "heidicon.public.dienststellen",
     "table_to": "easydb.dienststellen",
     "has_pool": false,
     "has_parent": true,
@@ -9,8 +9,8 @@
     "asset_columns": []
   },
   {
-    "sql": "SELECT id as '__source_unique_id', id as 'easydb4id', personengruppe FROM 'unib-heidelberg.public.kumpersonen'",
-    "table_from": "unib-heidelberg.public.kumpersonen",
+    "sql": "SELECT id as '__source_unique_id', id as 'easydb4id', personengruppe FROM 'heidicon.public.kumpersonen'",
+    "table_from": "heidicon.public.kumpersonen",
     "table_to": "easydb.personengruppen",
     "has_pool": false,
     "has_parent": false,
@@ -18,8 +18,8 @@
     "asset_columns": []
   },
   {
-    "sql": "SELECT id as '__source_unique_id', id as 'easydb4id', situation FROM 'unib-heidelberg.public.kumsituationen'",
-    "table_from": "unib-heidelberg.public.kumsituationen",
+    "sql": "SELECT id as '__source_unique_id', id as 'easydb4id', situation FROM 'heidicon.public.kumsituationen'",
+    "table_from": "heidicon.public.kumsituationen",
     "table_to": "easydb.situationen",
     "has_pool": false,
     "has_parent": false,
@@ -27,8 +27,8 @@
     "asset_columns": []
   },
   {
-    "sql": "SELECT id as '__source_unique_id', id as 'easydb4id', ort FROM 'unib-heidelberg.public.kumort'",
-    "table_from": "unib-heidelberg.public.kumort",
+    "sql": "SELECT id as '__source_unique_id', id as 'easydb4id', ort FROM 'heidicon.public.kumort'",
+    "table_from": "heidicon.public.kumort",
     "table_to": "easydb.ort_unihd",
     "has_pool": false,
     "has_parent": false,

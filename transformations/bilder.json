@@ -1,7 +1,7 @@
 [
   {	
-    "sql": "SELECT id as '__source_unique_id', pool_id as '__pool_id', id as 'easydb4id', titel as 'obj_titel' FROM 'unib-heidelberg.public.bilder'",
-    "table_from": "unib-heidelberg.public.bilder",
+    "sql": "SELECT id as '__source_unique_id', pool_id as '__pool_id', id as 'easydb4id', titel as 'obj_titel' FROM 'heidicon.public.bilder'",
+    "table_from": "heidicon.public.bilder",
     "table_to": "easydb.objekte",
     "has_pool": true,
     "has_parent": false,
