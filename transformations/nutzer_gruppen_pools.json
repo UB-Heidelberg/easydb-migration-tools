@@ -1,6 +1,24 @@
 [
   {
-    "sql": "SELECT id as '__source_unique_id', name as 'name:de-DE', shortname FROM 'heidicon.public.pool'",
+    "sql": "SELECT id as '__source_unique_id', login, vorname as 'first_name', nachname as 'last_name' FROM 'heidicon.public.user'",
+    "table_from": "heidicon.public.user",
+    "table_to": "easydb.ez_user",
+    "has_pool": false,
+    "has_parent": false,
+    "has_asset": false,
+    "asset_columns": []
+  },
+  {
+    "sql": "SELECT id as '__source_unique_id', name, name as 'displayname:de-DE' FROM 'heidicon.public.usergruppe'",
+    "table_from": "heidicon.public.usergruppe",
+    "table_to": "easydb.ez_group",
+    "has_pool": false,
+    "has_parent": false,
+    "has_asset": false,
+    "asset_columns": []
+  },
+  {
+    "sql": "SELECT id as '__source_unique_id', name as 'name:de-DE' FROM 'heidicon.public.pool'",
     "table_from": "heidicon.public.pool",
     "table_to": "easydb.ez_pool",
     "has_pool": false,
