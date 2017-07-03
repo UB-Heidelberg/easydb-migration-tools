@@ -25,7 +25,7 @@ class Pool(object):
                 '_id': self.id,
                 '_version': self.version,
                 'name': self.name,
-                'description': self.description
+                'description': self.description,
                 'shortname': self.shortname,
             }
         }
@@ -46,7 +46,7 @@ class Pool(object):
             if key.startswith('description:'):
                 pool.description[key.split(':')[1]] = value
             if key == 'shortname':
-                collection.shortname = value
+                pool.shortname = value
             if key == '__parent_id':
                 pool.parent_id = value
             if key == '__source_unique_id':
