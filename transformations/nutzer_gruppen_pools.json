@@ -25,6 +25,15 @@
     "has_parent": true,
     "has_asset": false,
     "asset_columns": []
+  },
+  {
+    "sql": "SELECT l.from_id || ':' || to_id as '__source_unique_id', l.to_id as group_id, l.from_id as user_id FROM 'heidicon.public.eadb_links' l JOIN 'heidicon.public.user' u ON l.from_id = u.id JOIN 'heidicon.public.usergruppe' g ON l.to_id = g.id WHERE l.from_table_id = 14 AND l.to_table_id=12",
+    "table_from": "heidicon.public.eadb_links",
+    "table_to": "easydb.ez_user__group",
+    "has_pool": false,
+    "has_parent": false,
+    "has_asset": false,
+    "asset_columns": []
   }
 ]
 
