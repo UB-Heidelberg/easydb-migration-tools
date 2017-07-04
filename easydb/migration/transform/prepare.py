@@ -114,7 +114,6 @@ class DestinationSchema(object):
         self._add_column(table_def, 'shortname', 'text')
         self._add_l10n_columns(table_def, 'name')
         self._add_l10n_columns(table_def, 'description')
-        self._add_column(table_def, 'shortname', 'text')
         self._add_column(table_def, '_standard_masks', 'text')
         self.db_schema.tables.append(table_def)
 
