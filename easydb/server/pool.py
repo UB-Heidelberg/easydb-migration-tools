@@ -18,6 +18,7 @@ class Pool(object):
         self.version = 1
         self.source_id = None
         self.standard_masks = None
+        self.shortname=None
 
     def to_json(self, root_pool_id):
         js = {
@@ -53,4 +54,6 @@ class Pool(object):
                 pool.source_id = value
             if key == '_standard_masks' and value is not None:
                 pool.standard_masks = json.loads(value)
+            if key == 'shortname':
+                pool.shortname = value
         return pool

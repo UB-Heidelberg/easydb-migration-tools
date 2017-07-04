@@ -53,9 +53,14 @@ objecttypes = [
 #	'situationen',
 	'ort_unihd',
 ]
+job.load(objecttypes)
 
-
+#####INSERT CUSTOM OBJECT-TYPES HERE
+objecttypes = []
 job.load(objecttypes)#incase https is necessary call with "verify_ssl=False" ##to skip Searching for existing assets call with "search_assets=False"
 
-
+objecttypes = [
+     'ez_collection__objects'
+]
+job.load(objecttypes)
 job.log_times()
