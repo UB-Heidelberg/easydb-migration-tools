@@ -44,14 +44,14 @@ logging.getLogger('easydb.migration.load.loader').setLevel('INFO')
 # dont include: link-tables (example__linked_object), file and system tables
 
 objecttypes = [
-#	'ez_user',
-#	'ez_group',
-#	'ez_pool',
-#	'bilder',
+        'ez_group',
+	'ez_user',
+	'ez_pool',
+#	'objekte',
 #	'dienststellen',
 #	'personengruppen',
 #	'situationen',
-	'ort_unihd',
+#	'ort_unihd',
 ]
 job.load(objecttypes)
 
@@ -60,7 +60,7 @@ objecttypes = []
 job.load(objecttypes)#incase https is necessary call with "verify_ssl=False" ##to skip Searching for existing assets call with "search_assets=False"
 
 objecttypes = [
-     'ez_collection__objects'
+#     'ez_collection__objects'
 ]
 job.load(objecttypes)
 job.log_times()
