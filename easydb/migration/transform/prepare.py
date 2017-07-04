@@ -111,6 +111,7 @@ class DestinationSchema(object):
         logger.debug('create pool table')
         table_def = self._easydb_table('ez_pool')
         self._add_column(table_def, '__parent_id', 'text')
+        self._add_column(table_def, 'shortname', 'text')
         self._add_l10n_columns(table_def, 'name')
         self._add_l10n_columns(table_def, 'description')
         self._add_column(table_def, 'shortname', 'text')
