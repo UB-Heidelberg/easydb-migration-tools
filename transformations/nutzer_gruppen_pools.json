@@ -18,7 +18,7 @@
     "asset_columns": []
   },
   {
-    "sql": "SELECT id as '__source_unique_id', name as 'name:de-DE' FROM 'heidicon.public.pool'",
+    "sql": "SELECT id as '__source_unique_id', name as 'name:de-DE', shortname FROM 'heidicon.public.pool'",
     "table_from": "heidicon.public.pool",
     "table_to": "easydb.ez_pool",
     "has_pool": false,
