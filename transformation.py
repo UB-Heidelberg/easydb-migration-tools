@@ -93,8 +93,9 @@ def final_touch(tables):
 
 #create destination.db
 job.prepare()
+# Wemm nur eine leere Destion erzeugt werden soll: nächste Zeile aktivieren
+#exit()
 
-###Zur Erzeugung einer leeren Destination alles ab hier auskommentieren
 # transform
 tables = []       #list of all tables, a transformation for each table must be appended in the dictionary stile below
 
