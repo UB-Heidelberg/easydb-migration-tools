@@ -185,4 +185,8 @@ class SQLiteRowIterator(object):
         return self.__next__()
 
     def __del__(self):
-        self.cur.close()
+        try:
+            self.cur.close()
+        except sqlite3.ProgrammingError as e:
+            pass
+            # already closed
