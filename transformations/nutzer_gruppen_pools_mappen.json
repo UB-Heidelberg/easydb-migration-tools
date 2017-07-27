@@ -34,6 +34,14 @@
     "has_parent": false,
     "has_asset": false,
     "asset_columns": []
+  },
+  {
+    "sql": "SELECT id as '__source_unique_id', 'collection' as '__type', 'fk_father_id' as '__parent_id', name as 'displayname:de-DE', easydb_owner as '__owner' FROM 'heidicon.public.workfolder2'",
+    "table_from": "heidicon.public.workfolder2",
+    "table_to": "easydb.ez_collection",
+    "has_pool": false,
+    "has_parent": false,
+    "has_asset": false
   }
 ]
 

@@ -47,6 +47,7 @@ objecttypes = [
         'ez_group',
 	'ez_user',
 	'ez_pool',
+	'ez_collection',
 #	'objekte',
 #	'dienststellen',
 #	'personengruppen',
